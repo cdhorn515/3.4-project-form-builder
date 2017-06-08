@@ -67,7 +67,7 @@
     },
     {
       "type": "tel",
-      "label": "Mobil Number",
+      "label": "Mobile Number",
       "id": "user-mobile",
       "icon": "fa-mobile-phone",
       "options": []
@@ -80,6 +80,64 @@
       "options": []
     }
   ];
+
+var formNode = document.getElementById('signup');
+
+for (var i = 0; i < formData.length; i++) {
+  //create formData var for each object in arr (label is one of the properties)
+  var input = formData[i];
+  //creating different Nodes of each obj in the array
+  var inputNode = document.createElement('input');
+  // console.log(input);
+
+  var formNode = document.querySelector('form');
+  // add newly created form to form node
+  formNode.appendChild(inputNode);
+
+  console.log(formNode);
+  var typeNode = document.createElement('type');
+  //add newly created type to inputNode
+  inputNode.appendChild(typeNode);
+  var labelNode = document.createElement('label');
+  inputNode.appendChild(labelNode);
+  var idNode = document.createElement('id');
+  inputNode.appendChild(idNode);
+  var iconNode = document.createElement('icon');
+  inputNode.appendChild(iconNode);
+  var optionsNode = document.createElement('options');
+  inputNode.appendChild(optionsNode);
+
+  // console.log(typeNode);
+
+
+}
+
+
+
+
+  //
+  //
+  // websitePageOutline = document.createElement('type');
+  //
+  // websitePageOutline.appendChild(input);
+ // console.log(input);
+ // this.type =
+
+
+// append label
+
+  // console.log(newInput);
+
+  //access key/value pair of each object
+  // for (var j = 0; j < input.length; j++) {
+    // this.input = input[j];
+    // console.log(input);
+  // }
+  //each object has key/value pairs
+  // create and append element in for loop
+  //
+// }
+
 
 
 
