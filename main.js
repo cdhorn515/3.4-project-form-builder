@@ -80,68 +80,76 @@
     }
   ];
 
-  var inputNode;
-    // create form for DOM from form id signup in html
-    var formNode = document.getElementById('signup');
-
-  var titleNode = document.createElement('h1');
-
+  // var titleNode = document.createElement('h1');
   // titleNode.textContent = "Sign Up For My Web App";
   // formNode.appendChild(titleNode);
+
+  // create form for DOM from form id signup in html
+  var formNode = document.querySelector('.fields');
 
   //loop through the object
   for (var i = 0; i < formData.length; i++) {
     var input = formData[i];
     console.log(formData[i]);
+    //if input type is small text box
+    // create input element (new object)
     if (input.type === "text" || input.type === "tel" || input.type === "email") {
-     inputNode = document.createElement('input');
-     inputNode.setAttribute('type', input.type);
-   } else if (input.type === "textarea") {
-     inputNode = document.createElement('textarea');
-   } else if (input.type === "select") {
+      var inputNode = document.createElement('input');
+      inputNode.style.display = 'block';
+      //set attribute (property:value) of element
+      inputNode.setAttribute('type', input.type);
+      inputNode.setAttribute('placeholder', input.label);
+      formNode.appendChild(inputNode);
+      //append newly created p-v pair to my object
+    } else if (input.type === "textarea") {
+      inputNode = document.createElement('textarea');
+      inputNode.style.display = 'block';
+      inputNode.setAttribute('textarea', input.type);
+      inputNode.setAttribute('placeholder', input.label);
+      formNode.appendChild(inputNode);
+
+    } else if (input.type === "select") {
       // loop through array in options)
-      for (let j = 0; j < input.options.length; j++) {
-        console.log(input.options);
-        if (input.options.Node === "label") {
-          inputNode = document.createElement('label');
-          inputNode.setAttribute('label', input.options.label);
-        } else {
-          inputNode = document.createElement('value');
-          inputNode.setAttribute('value', input.options.value);
-        }
-        inputNode = document.createElement('select');
-        inputNode.setAttribute('select', input.select);
-      }
+      var selectNode = document.createElement('select');
+      // selectNode.style.display = 'block';
     }
-    // add attributes to inputNode (key/value pairs)
-
-    inputNode.setAttribute('id', input.id);
-    inputNode.setAttribute('icon', input.icon);
-
-    console.log(inputNode);
-    // add to formNode
-    formNode.appendChild(inputNode);
+  }
+  // loop through options for select box
+  for (let j = 0; j < formData[4].options.length; j++) {
+    //create options Node--text in drop down
+    var inputOption = formData[4].options[j];
+    // var inputOption = input.options[j];
+    var optionNode = document.createElement('option');
+    optionNode.textContent = inputOption.label;
+    optionNode.setAttribute('value', inputOption.value);
+    formNode.appendChild(selectNode);
+    selectNode.appendChild(optionNode);
   }
 
-formNode.setAttribute('display', block);
 
 
 
-// Hints -----------
 
-// Accessing specific properties.
-//formData[0].label // this will give us "First Name"
-// as you can see we access the first element in the array
-// with [0] and then grab the property "label" using the "." character
 
-// Looping
-// Sample of how to loop over the formData
-//for(let i=0; i<formData.length; i++){
+  // formNode.setAttribute('display', block);
+
+
+
+  // Hints -----------
+
+  // Accessing specific properties.
+  //formData[0].label // this will give us "First Name"
+  // as you can see we access the first element in the array
+  // with [0] and then grab the property "label" using the "." character
+
+  // Looping
+  // Sample of how to loop over the formData
+  //for(let i=0; i<formData.length; i++){
 
   // Check your dev tools console for what the items in formData have
-//  console.log(formData[i])
+  //  console.log(formData[i])
 
-//}
+  //}
 
 
 
